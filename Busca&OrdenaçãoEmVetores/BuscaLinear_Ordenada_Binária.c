@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 int buscaLinear(int *vetor, int n, int elem)
 {
@@ -58,39 +56,15 @@ int buscaBinaria(int *vetor, int n, int elem)
 
 void printarVetor(int j, int *vetor)
 {
-	int i;
-	for (i = 0; i < j-1; i++)
+	for (j = 0; j <= 4; j++)
 		{
-			printf ("%d,", vetor[i]);
+			printf ("%d,", vetor[j]);
 		}
-		if(j == 7)
-		{
-			printf("150\n");
-		}else
-		printf("%d]\n", vetor[j-1]);
-}
-
-void adicionarVetor(int size, int n, int *vetor)
-{
-	int i;
-	int *tmp;
-	tmp=calloc(size+1, sizeof(int));
-
-	for(i = 0; i < size; i++)
-	{
-		if (n < vetor[i])
-		{
-			break;
-		}
-	}
-	memmove(tmp, vetor+i, size);
-	vetor[i] = n;
-	memmove(vetor+i+1, tmp, size);
+		printf("%d]\n", vetor[5]);
 }
 
 int main()
 {
-	int vetorAdicionar[8] = {100,110,120,130,140,150};
 	int vetorDesordenado[6] = {7, 55, 5, 4, 76, 89};
 	int vetorOrdenado[6] = {100, 110, 120, 130, 140, 150};
 	int resLinear, resOrdenada, resBinaria;
@@ -110,10 +84,4 @@ int main()
 	puts("\nBusca Binaria:");
 	printf("O resultado %d aparece na posição %d do vetor [",vetorOrdenado[resBinaria], resBinaria);
 	printarVetor(6, vetorOrdenado);
-
-
-	adicionarVetor(6, 121, vetorAdicionar);
-
-	puts("\nAdicionando Vetor ordenado:");
-	printarVetor(7, vetorAdicionar);
 }
